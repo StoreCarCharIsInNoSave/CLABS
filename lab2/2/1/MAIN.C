@@ -1,0 +1,35 @@
+
+#include <stdio.h>
+#include <math.h>
+
+void main()
+{
+    unsigned long delimeter = 1;
+    unsigned long  newNumber = 0;
+    unsigned long a[50];
+    unsigned long  i,N,k,x;
+    printf("Vvedite N = ");
+    scanf("%d",&N);
+    printf("[%d]",N);
+    k=0;
+    do
+    {
+        x=N%10;   //vydelenie poslednei cifry
+        N=N/10;   //isxodnoe chislo bez poskednei cifry
+        if(x % 3 != 0)  //proverka na kratnost' 3
+        {
+            a[k]=x;      //zapi v massiv
+            k++;
+        }
+    }
+    while(N>0);
+    for(i=0;i<k;i++)
+    {
+       newNumber+=a[i]*delimeter;
+       delimeter*=10;
+       if  (delimeter>pow(10,k))break;
+    }
+    printf("%d ",newNumber);
+    printf("\n");
+    scanf("%d",&N);
+}
